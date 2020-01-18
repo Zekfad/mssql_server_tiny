@@ -1,9 +1,9 @@
-FROM debian:stretch-slim AS build0
-WORKDIR /root
+FROM mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8 AS build0
+WORKDIR /opc
 
 RUN apt-get update && apt-get install -y binutils gcc
 
-ADD wrapper.c /root/
+ADD wrapper.c /opc/
 
 RUN gcc -shared  -ldl -fPIC -o wrapper.so wrapper.c
 
