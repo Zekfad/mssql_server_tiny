@@ -8,7 +8,7 @@ RUN gcc -shared  -ldl -fPIC -o wrapper.so wrapper.c
 
 
 
-FROM mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+FROM mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
 COPY --from=build0 /root/wrapper.so /root/
 
 
